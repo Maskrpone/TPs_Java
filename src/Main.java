@@ -2,10 +2,17 @@
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
+        Cercle cercle = new Cercle(5);
+        cercle.afficherDetails();
+
+        Triangle triangle = new Triangle(5, 10);
+        triangle.afficherDetails();
+
         Hours empty = new Hours();
         empty.checkInfos();
 
-        Hours firstConstruct = new Hours(3,30, 40);
+        Hours firstConstruct = new Hours(3, 30, 40);
         firstConstruct.checkInfos();
 
         Hours secondConstruct = new Hours(3.511111111111111);
@@ -24,8 +31,17 @@ public class Main {
         TestAirplane emptyTestAirplane = new TestAirplane();
         emptyTestAirplane.checkInfos();
 
+        TimeInfo emptyTimeInfo = new TimeInfo();
+
         Flight emptyFlight = new Flight();
         emptyFlight.checkInfos();
+
+        emptyFlight.setPilot(emptyTechnician);
+        emptyFlight.setCopilot(emptyTechnician);
+        emptyFlight.setPlane(emptyAirplane);
+        emptyFlight.setFromCity("Paris");
+        emptyFlight.setToCity("New York");
+        emptyFlight.setSpecs(emptyTimeInfo);
 
         System.out.println("\n\n");
 
@@ -33,7 +49,7 @@ public class Main {
         Flight fullFlight = getFullFlight();
         fullFlight.checkInfos();
 
-        
+
     }
 
     private static Flight getFullFlight() {
@@ -44,8 +60,11 @@ public class Main {
 
         TestAirplane fullTestAirplane = new TestAirplane(1, "A320", true);
 
-        Airplane fullAirplane = new Airplane(1, "FR", "A320", "Paris", "Airbus", 573.17, 100, 1000, "A320", fullTestAirplane);
+        Airplane airplane = new Airplane(1, "FR", "A320", "Paris", "Airbus", 573.17, 100, 1000, "A320", fullTestAirplane);
 
-        return new Flight(fullTechnician, fullTechnician, fullAirplane, "Paris", "New York", fullTimeInfo);
+        TestAirplane newTestAirplane = new TestAirplane(2, "A320", false);
+        airplane.addTest(newTestAirplane);
+
+        return new Flight(fullTechnician, fullTechnician, airplane, "Paris", "New York", fullTimeInfo);
     }
 }

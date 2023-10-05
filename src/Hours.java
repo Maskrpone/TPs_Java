@@ -8,6 +8,7 @@ public class Hours {
         this.minutes = 0;
         this.seconds = 0;
     }
+
     public Hours(int hours, int minutes, int seconds) {
         if ((seconds % 60) != seconds) {
             minutes++;
@@ -23,15 +24,15 @@ public class Hours {
     }
 
     public Hours(double value) {
-        this.hours = (int)Math.floor(value);
+        this.hours = (int) Math.floor(value);
         value -= this.hours;
 
         value *= 60;
-        this.minutes = (int)Math.floor(value);
+        this.minutes = (int) Math.floor(value);
         value -= this.minutes;
 
         value *= 60;
-        this.seconds = (int)Math.floor(value);
+        this.seconds = (int) Math.floor(value);
     }
 
     public int getHours() {

@@ -73,12 +73,12 @@ public class Flight {
     }
 
     public void checkInfos() {
-        System.out.println("Pilot: " + this.pilot.getFirstname() + " " + this.pilot.getSurname());
-        System.out.println("Copilot: " + this.copilot.getFirstname() + " " + this.copilot.getSurname());
-        System.out.println("Plane: " + this.plane.getName());
-        System.out.println("From: " + this.fromCity);
-        System.out.println("To: " + this.toCity);
-        System.out.println("Departure: " + this.specs.getDay() + "/" + this.specs.getMonth() + "/" + this.specs.getYear() + " at " + this.specs.getHours() + ":" + this.specs.getMinutes());
+        System.out.println("Pilot: " + this.getPilot().getFirstname() + " " + this.pilot.getSurname());
+        System.out.println("Copilot: " + this.getCopilot().getFirstname() + " " + this.copilot.getSurname());
+        System.out.println("Plane: " + this.getPlane().getName());
+        System.out.println("From: " + this.getFromCity());
+        System.out.println("To: " + this.getToCity());
+        System.out.println("Departure: " + this.getSpecs().getDay() + "/" + this.getSpecs().getMonth() + "/" + this.getSpecs().getYear() + " at " + this.getSpecs().getHours() + ":" + this.getSpecs().getMinutes());
         System.out.println("-----------------");
     }
 }

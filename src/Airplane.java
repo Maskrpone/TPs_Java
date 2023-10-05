@@ -95,17 +95,17 @@ public class Airplane {
     }
 
     public void checkInfos() {
-        System.out.println("Id: " + this.id);
-        System.out.println("Id country: " + this.idCountry);
-        System.out.println("Type: " + this.type);
-        System.out.println("Airport: " + this.airport);
-        System.out.println("Name: " + this.name);
-        System.out.println("Weight: " + this.weight);
-        System.out.println("Capacity: " + this.capacity);
-        System.out.println("Max distance: " + this.maxDistance);
-        System.out.println("Icao: " + this.icao);
+        System.out.println("Id: " + this.getId());
+        System.out.println("Id country: " + this.getIdCountry());
+        System.out.println("Type: " + this.getType());
+        System.out.println("Airport: " + this.getAirport());
+        System.out.println("Name: " + this.getName());
+        System.out.println("Weight: " + this.getWeight());
+        System.out.println("Capacity: " + this.getCapacity());
+        System.out.println("Max distance: " + this.getMaxDistance());
+        System.out.println("Icao: " + this.getIcao());
+        System.out.println("Tests: " + this.getTests().length);
         System.out.println("-----------------");
-        // zebi les checkouts de merde
     }
 }
 
