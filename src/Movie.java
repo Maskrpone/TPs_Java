@@ -3,13 +3,6 @@ public class Movie extends Show {
     private final String director;
     private final boolean replay;
 
-    public Movie() {
-        super();
-        this.replay = false;
-        this.releaseYear = 0;
-        this.director = "None";
-    }
-
     public Movie(String name, int duration, int releaseYear, String director, boolean replay) {
         super(name, duration);
         this.releaseYear = releaseYear;
