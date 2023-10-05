@@ -6,6 +6,6 @@ public class Main {
         Entertainment KardashianShow = new Entertainment("Kardashian's show", "Kim Kardashian");
         KardashianShow.display();
 
-        Report
+        Report NatGeo = new Report("National geographic", 2, "nature");
     }
 }
