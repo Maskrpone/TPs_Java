@@ -105,6 +105,7 @@ public class Airplane {
         System.out.println("Max distance: " + this.maxDistance);
         System.out.println("Icao: " + this.icao);
         System.out.println("-----------------");
+        // zebi les checkouts de merde
     }
 }
 
