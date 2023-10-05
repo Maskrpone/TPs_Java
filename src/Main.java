@@ -1,11 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        Movie IronMan = new Movie("Iron-man 3", 2, 2013, "Kevin Felge", true);
-        IronMan.display();
+        Movie ironman = new Movie("Iron-man 3", 2, 2013, "Kevin Felge", true);
+        ironman.display();
 
-        Entertainment KardashianShow = new Entertainment("Kardashian's show", "Kim Kardashian");
-        KardashianShow.display();
+        Entertainment kardashianshow = new Entertainment("Kardashian's show", "Kim Kardashian");
+        kardashianshow.display();
 
-        Report NatGeo = new Report("National geographic", 2, "nature");
+        Report natgeo = new Report("National geographic", 2, "nature");
+        natgeo.display();
     }
 }
