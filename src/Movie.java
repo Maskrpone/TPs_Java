@@ -1,3 +1,4 @@
+// Author: Hippolyte DEPARIS
 public class Movie extends Emission {
     private final int yearOfRelease;
     private final String director;

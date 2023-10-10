@@ -1,3 +1,4 @@
+// Author: Hippolyte DEPARIS
 public class Report extends Emission{
     private final String theme;
     public Report(String name, String theme, int duration){

@@ -1,4 +1,4 @@
-// Authors: Hippolyte DEPARIS
+// Author: Hippolyte DEPARIS
 
 /*
 * Abstract class called Emission, which is the parent class of Movie, Report and Entertainment.
