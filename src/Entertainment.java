@@ -1,13 +1,18 @@
-public class Entertainment extends Show {
-    private final String speaker;
-    public Entertainment(String name, String speaker) {
+// Author: Hippolyte DEPARIS
+public class Entertainment extends Emission {
+    private final String presenter;
+    public Entertainment(String name, String presenter) {
         super(name, 2);
-        this.speaker = speaker;
+        this.presenter = presenter;
     }
-    public void display() {
-        System.out.println("-------------");
-        System.out.println("Name of entertainment : " + this.getName());
-        System.out.println("Duration of entertainment : " + this.getDuration());
-        System.out.println("Name of the Speaker : " + this.speaker);
+    @Override
+    public void print() {
+        System.out.println("Name: " + this.getName());
+        System.out.println("Presenter: " + this.presenter);
+        System.out.println("Duration: " + this.getDuration() + " minutes");
+    }
+    @Override
+    public boolean isValid() {
+        return this.getStart() >= 18 && this.getStart() + this.getDuration() <= 23;
     }
 }
