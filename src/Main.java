@@ -1,5 +1,4 @@
 // Author: Hippolyte DEPARIS
-
 import java.util.Scanner;
 
 public class Main {
@@ -23,7 +22,7 @@ public class Main {
                 System.out.println("Invalid choice");
         }
     }
-    // The following function initiates all of the different types of Emission, and uses their print() so the user can control them.
+    // The following function initiates all the different types of Emission, and uses their print() so the user can control them.
     public static void testClasses() {
         Entertainment ent = new Entertainment("The Voice", "Nikos Aliagas");
         Movie movie = new Movie("The Lord of the Rings", 2001, "Peter Jackson", true, 3);
@@ -41,8 +40,14 @@ public class Main {
 
     public static void tvProgram() {
         Programmation program = new Programmation();
-        program.setProgram(12, new Entertainment("The Voice", "Nikos Aliagas"));
-        // printv2 under development
-        program.print();
+        Movie film = new Movie("The Lord of the Rings", 2001, "Peter Jackson", true, 3);
+        film.setStart(11);
+
+        try {
+            program.add(film);
+        } catch (InvalidSchedule e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        program.displayProgram();
     }
 }

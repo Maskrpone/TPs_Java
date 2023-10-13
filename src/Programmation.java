@@ -1,70 +1,39 @@
+// Author: Hippolyte DEPARIS
+import java.util.Objects;
 public class Programmation {
-    private final boolean[] timetable;
+    private final Emission[] program;
+    private int index = 0;
     public Programmation() {
-        this.timetable = new boolean[24];
+        this.program = new Emission[24];
         for (int i = 0; i < 24; i++) {
-            this.timetable[i] = true;
+            this.program[i] = new Entertainment("None", "None");
         }
     }
-
-    public boolean getHour(int hour) {
-        return this.timetable[hour - 1];
-    }
-
-    public void setHour(int hour) {
-        timetable[hour - 1] = !timetable[hour - 1];
-    }
-
-    public void createProgram() {
-        // TODO -> create the function that asks what type of content we want to program
-    }
-
-    // TODO -> See to optimize this, maybe change this class to put programs as a stack, with begin and end values in the Emission class as legacy for child classes
-    public int setProgram(int hour, Emission emission) {
-        if (this.getHour(hour)) {
-            int availability = 0;
-            for (int i = 0; i < emission.getDuration(); i++) {
-                if (!this.getHour(hour + i)) {
-                    availability++;
-                }
-            }
-            if (availability == 0) {
-                for (int i = 0; i < emission.getDuration(); i++) {
-                    this.setHour(hour + i);
-                }
-            } else {
-                System.err.println("Error: Booking can't be made, there is not enough free time ahead...");
-                return 1;
-            }
-        } else {
-            System.err.println("Error: Booking can't be made, time slot unavailable...");
-            return 1;
-        }
-        return 0;
-    }
-    // this function will be used to print the formatted timetable
-    public void print() {
-        System.out.println("Timetable:");
-        System.out.println("Hour\t\tAvailability");
-        for (int i = 0; i < 24; i++) {
-            System.out.print(i + 1 + "h\t\t");
-            if (this.getHour(i + 1)) {
-                System.out.println("Available");
-            } else {
-                System.out.println("Unavailable");
+    public boolean avoidOverlap(int hour, int duration) {
+        for (int i = 0; i < this.index + 1; i++) {
+            if (hour >= this.program[i].getStart() && hour <= this.program[i].getStart() + this.program[i].getDuration()) {
+                return false;
+            } else if (hour + duration >= this.program[i].getStart() && hour + duration <= this.program[i].getStart() + this.program[i].getDuration()) {
+                return false;
             }
         }
+        return true;
     }
-    public void printv2() {
-        System.out.println("Timetable : ");
-        boolean availability = this.getHour(1);
-        System.out.print("\t0h\t");
-        for (int i = 1; i < 24; i++) {
-            if (this.getHour(i) != availability) {
-                System.out.print(((availability) ? "Available" : "unavailable" ) + "\t" + i + "h" + "\t");
-                availability = !availability;
-            }
+    public void add(Emission emission) throws InvalidSchedule {
+        if(!emission.isValid())
+            throw new InvalidSchedule();
+        if(!avoidOverlap(emission.getStart(), emission.getDuration()))
+            throw new InvalidSchedule("This emission would overlap with another one.");
+
+        this.program[this.index] = emission;
+        this.index++;
+    }
+    public void displayProgram() {
+        if (Objects.equals(this.program[0].getName(), "None"))
+            System.out.println("You have not set anything yet for this day.");
+        for (int i = 0; i < this.index; i++) {
+            System.out.println("From " + this.program[i].getStart() + "h until " + this.program[i].getStart() + this.program[i].getDuration() + "h : ");
+            this.program[i].print();
         }
-        System.out.print("\t" + ((availability) ? "available" : "unavailable") + "\t" + "24h");
     }
 }
