@@ -1,6 +1,6 @@
 // Author: Hippolyte DEPARIS
-import java.util.Scanner;
 
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         System.out.println("What do you want to do ?");
@@ -22,7 +22,7 @@ public class Main {
                 System.out.println("Invalid choice");
         }
     }
-    // The following function initiates all the different types of Emission, and uses their print() so the user can control them.
+    // The following method initiates all the different types of Emission, and uses their print() so the user can control them.
     public static void testClasses() {
         Entertainment ent = new Entertainment("The Voice", "Nikos Aliagas");
         Movie movie = new Movie("The Lord of the Rings", 2001, "Peter Jackson", true, 3);
@@ -37,17 +37,21 @@ public class Main {
         movie.setIsLive(false);
         movie.print();
     }
-
+    // The following function initiate the program
     public static void tvProgram() {
+        // Creation of a program calendar
         Programmation program = new Programmation();
+        // creation of a movie to put in our schedule
         Movie film = new Movie("The Lord of the Rings", 2001, "Peter Jackson", true, 3);
         film.setStart(11);
-
+        // if the movie is compatible with the schedule, we add it.
+        // otherwise, an error is thrown.
         try {
             program.add(film);
         } catch (InvalidSchedule e) {
             System.out.println("Error: " + e.getMessage());
         }
+        // display
         program.displayProgram();
     }
 }

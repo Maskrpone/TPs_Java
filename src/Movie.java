@@ -20,6 +20,7 @@ public class Movie extends Emission {
         System.out.println("Is live: " + this.isLive);
         System.out.println("Duration: " + this.getDuration() + " minutes");
     }
+    // Method to make sure that the object validates all the requirements made by the private TV company
     @Override
     public boolean isValid() {
         if(!this.isLive) {

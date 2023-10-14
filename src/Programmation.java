@@ -1,5 +1,10 @@
 // Author: Hippolyte DEPARIS
 import java.util.Objects;
+
+/*
+ * This class contains the array with the different programs scheduled.
+ * It is through this class that we can add new programs, display schedule...
+ */
 public class Programmation {
     private final Emission[] program;
     private int index = 0;
@@ -9,6 +14,7 @@ public class Programmation {
             this.program[i] = new Entertainment("None", "None");
         }
     }
+    // Method to test if we can add a program in this time slot
     public boolean avoidOverlap(int hour, int duration) {
         for (int i = 0; i < this.index + 1; i++) {
             if (hour >= this.program[i].getStart() && hour <= this.program[i].getStart() + this.program[i].getDuration()) {
@@ -19,6 +25,7 @@ public class Programmation {
         }
         return true;
     }
+    // This method is used to add new programs, and throw a specific error in case something is wrong (wrong schedule, overlapping)
     public void add(Emission emission) throws InvalidSchedule {
         if(!emission.isValid())
             throw new InvalidSchedule();

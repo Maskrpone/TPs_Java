@@ -14,6 +14,7 @@ public class Report extends Emission{
         System.out.println("Theme: " + this.getTheme());
         System.out.println("Duration: " + this.getDuration() + " minutes");
     }
+    // Method to make sure that the object validates all the requirements made by the private TV company
     @Override
     public boolean isValid() {
         if (this.getDuration() != 1) {
