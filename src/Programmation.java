@@ -15,14 +15,10 @@ public class Programmation {
         }
     }
     // Method to test if we can add a program in this time slot
-    // TODO : re-do this function, not sure if it is rightfully done
     public boolean avoidOverlap(int hour, int duration) {
         for (int i = 0; i < this.index + 1; i++) {
-            if (hour >= this.program[i].getStart() && hour <= this.program[i].getStart() + this.program[i].getDuration()) {
+            if(this.program[i].getStart() < hour + duration && this.program[i].getStart() + this.program[i].getDuration() > hour)
                 return false;
-            } else if (hour + duration >= this.program[i].getStart() && hour + duration <= this.program[i].getStart() + this.program[i].getDuration()) {
-                return false;
-            }
         }
         return true;
     }

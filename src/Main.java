@@ -42,12 +42,22 @@ public class Main {
         // Creation of a program calendar
         Programmation program = new Programmation();
         // creation of a movie to put in our schedule
-        Movie film = new Movie("The Lord of the Rings", 2001, "Peter Jackson", true, 3);
-        film.setStart(11);
+        Movie film = new Movie("The Lord of the Rings", 2001, "Peter Jackson", false, 3);
+        film.setStart(19);
         // if the movie is compatible with the schedule, we add it.
         // otherwise, an error is thrown.
         try {
             program.add(film);
+        } catch (InvalidSchedule e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        // overlapping test
+        Entertainment ent = new Entertainment("The Voice", "Nikos Aliagas");
+        ent.setStart(20);
+
+        try {
+            program.add(ent);
         } catch (InvalidSchedule e) {
             System.out.println("Error: " + e.getMessage());
         }
